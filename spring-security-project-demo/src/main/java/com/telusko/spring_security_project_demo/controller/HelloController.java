@@ -1,0 +1,30 @@
+package com.telusko.spring_security_project_demo.controller;
+
+
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController //means it returns the data in JSON Format
+public class HelloController {
+
+
+
+
+    @GetMapping("/hello")
+    public String greet(HttpServletRequest request)
+    {
+        //get the id of the current session
+        return "Hello world"+request.getSession().getId();
+    }
+
+
+
+    @GetMapping("/about")
+    public String about(HttpServletRequest request)
+    {
+        return "telusko"+request.getSession().getId();
+
+    }
+
+}
